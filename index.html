@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Joining Roblox Server...</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content="0; url=/">
+    <script type="text/javascript">
+        // This script reads the server details from the URL and launches Roblox
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            const placeId = params.get('placeId');
+            const gameInstanceId = params.get('gameInstanceId');
+
+            if (placeId && gameInstanceId) {
+                // Construct the special Roblox URL protocol link
+                const robloxUrl = `roblox://placeID=${placeId}&gameInstanceId=${gameInstanceId}`;
+                
+                // Redirect the user to the Roblox link, which opens the app
+                window.location.href = robloxUrl;
+            } else {
+                // If the details are missing, just go back to the main page or show an error
+                document.body.innerText = "Error: Missing Place ID or Game Instance ID.";
+            }
+        };
+    </script>
+</head>
+<body>
+    <p>Attempting to join Roblox server...</p>
+    <footer>
+        <p style="font-family: sans-serif; font-size: 12px; color: #888;">Created by LXZR</p>
+    </footer>
+</body>
+</html>
